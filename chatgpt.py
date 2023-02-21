@@ -17,6 +17,8 @@ def SpeakText(command):
     engine.say(command)
     engine.runAndWait()
 
+load_dotenv()
+
 # Define OpenAI API key 
 openai.api_key = os.getenv('API_KEY')
 
