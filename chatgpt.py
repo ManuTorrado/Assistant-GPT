@@ -1,6 +1,9 @@
 import openai
 import pyttsx3
  
+import os
+from dotenv import load_dotenv
+
 from voice import doStuff
 
 # Function to convert text to
@@ -15,11 +18,13 @@ def SpeakText(command):
     engine.runAndWait()
 
 # Define OpenAI API key 
-openai.api_key = "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"
+openai.api_key = os.getenv('API_KEY')
 
 # Set up the model and prompt
 model_engine = "text-davinci-003"
+
 prompt = doStuff()
+
 
 # Generate a response
 completion = openai.Completion.create(
